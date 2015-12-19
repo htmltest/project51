@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Toyota</title>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
+        <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css" />
+
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/jscrollpane/jquery.mousewheel.js"></script>
+        <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="js/tools.js"></script>
+
+        <meta name="viewport" content="width=device-width" />
+    </head>
+
+    <body>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+
+            <header>
+                <ul class="header-menu">
+                    <li><a href="#" class="header-menu-clear">начать сначала</a></li>
+                    <li><a href="#" class="header-menu-back">шаг назад</a></li>
+                    <li><a href="#" class="header-menu-next">шаг вперед</a></li>
+                    <li><a href="#" class="header-menu-inc">увеличить</a></li>
+                    <li><a href="#" class="header-menu-dec">уменьшить</a></li>
+                    <li><a href="#" class="header-menu-help">подсказка</a></li>
+                </ul>
+
+                <div class="logo"><img src="images/logo.png" alt="" width="58" height="48" /></div>
+            </header>
+
+            <!-- wrapper inner -->
+            <div class="wrapper-inner">
+                <div class="menu">
+                    <ul>
+                        <li class="disable"><a href="#" class="menu-bg">выбрать<br />фон</a></li>
+                        <li class="disable"><a href="#" class="menu-auto">выбрать<br />авто</a></li>
+                        <li class="disable"><a href="#" class="menu-text">текст</a></li>
+                        <li class="disable"><a href="#" class="menu-send">отправить</a></li>
+                    </ul>
+                </div>
+
+                <!-- submenu -->
+                <div class="submenu">
+                    <div class="submenu-content active">
+                        <div class="submenu-list">
+                            <div class="submenu-list-content">
+                                <ul class="submenu-bg">
+                                    <li><a href="files/bg/01.jpg"><img src="files/bg/01-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/02.jpg"><img src="files/bg/02-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/03.jpg"><img src="files/bg/03-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/04.jpg"><img src="files/bg/04-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/05.jpg"><img src="files/bg/05-preview.jpg" alt="" /></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submenu-content">
+                        <div class="submenu-list">
+                            <div class="submenu-list-content">
+                                <ul class="submenu-auto">
+                                    <li><a href="files/auto/01.png"><img src="files/auto/01-preview.jpg" alt="" /><span>LC40</span></a></li>
+                                    <li><a href="files/auto/02.png"><img src="files/auto/02-preview.jpg" alt="" /><span>LC70</span></a></li>
+                                    <li><a href="files/auto/03.png"><img src="files/auto/03-preview.jpg" alt="" /><span>LC150</span></a></li>
+                                    <li><a href="files/auto/04.png"><img src="files/auto/04-preview.jpg" alt="" /><span>LC200</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submenu-content">
+                        <div class="submenu-list">
+                            <div class="submenu-list-content">
+                                <ul class="submenu-text">
+                                    <li><a href="#"><img src="files/text/01-preview.png" alt="" /><img src="files/text/01-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/02.png"><img src="files/text/02-preview.png" alt="" /><img src="files/text/02-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/03.png"><img src="files/text/03-preview.png" alt="" /><img src="files/text/03-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/04.png"><img src="files/text/04-preview.png" alt="" /><img src="files/text/04-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/05.png"><img src="files/text/05-preview.png" alt="" /><img src="files/text/05-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/06.png"><img src="files/text/06-preview.png" alt="" /><img src="files/text/06-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/07.png"><img src="files/text/07-preview.png" alt="" /><img src="files/text/07-hover.png" alt="" /></a></li>
+                                    <li><a href="files/text/08.png"><img src="files/text/08-preview.png" alt="" /><img src="files/text/08-hover.png" alt="" /></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- submenu END -->
+
+                <div class="container">
+                    <div class="content">
+
+                    </div>
+                </div>
+
+                <!-- welcome -->
+                <div class="welcome active">
+                    <div class="welcome-inner">
+                        <div class="welcome-title">создай свою<br />новогоднюю открытку!</div>
+                        <div class="welcome-text">Выберите фон и автомобиль, добавьте<br />поздравление и открытка готова!</div>
+                        <a href="#" class="welcome-link">создать</a>
+                    </div>
+                </div>
+                <!-- welcome END -->
+
+                <!-- send -->
+                <div class="send">
+                    <form action="#" method="post">
+                        <div class="send-top">
+                            <div class="send-preview"><a href="files/preview-big.jpg"><img src="files/preview.jpg" alt="" /></a></div>
+                            <div class="send-share">
+                                <div class="send-share-title">Поделиться</div>
+                                <div class="send-share-link">https://yadi.sk/d/FRHCKHUYkn48W</div>
+                                <div class="send-share-social">
+                                    <a href="#"><img src="images/social-fb.png" alt="" width="30" height="30" /></a>
+                                    <a href="#"><img src="images/social-vk.png" alt="" width="30" height="30" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="send-title">Отправить по e-mail</div>
+
+                        <div class="send-row">
+                            <div class="send-col">
+                                <div class="send-subtitle">От кого:</div>
+                                <div class="send-hint">Введите свой адрес электронной почты и он будет отображаться в качестве отправителя поздравления</div>
+                                <div class="send-input"><input type="text" name="emailFrom" value="" class="required email" placeholder="Электронный адрес" /></div>
+                            </div>
+                        </div>
+
+                        <div class="send-subtitle">Кому:</div>
+                        <div class="send-hint">Введите e-mail адреса получателей через точку с запятой в поле«электронный адрес» или добавьте каждый последующий с помощью «+», если хотите поздравить каждого получателя персонально.</div>
+                        <div class="send-row">
+                            <div class="send-col">
+                                <div class="send-input"><input type="text" name="emailTo[0]" value="" class="required email" placeholder="Электронный адрес" /></div>
+                            </div>
+                            <div class="send-col">
+                                <div class="send-input"><input type="text" name="appeal[0]" value="" class="required" placeholder="Обращение" /></div>
+                            </div>
+                            <div class="send-col">
+                                <div class="send-input"><input type="text" name="name[0]" value="" class="required" placeholder="имя" /></div>
+                            </div>
+                        </div>
+                        <div class="send-row">
+                            <div class="send-col">&nbsp;</div>
+                            <div class="send-col">&nbsp;</div>
+                            <div class="send-col">
+                                <div class="send-submit">
+                                    <input type="submit" value="отправить открытку" />
+                                    <a href="#" class="send-address-add"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- send END -->
+
+                <!-- success -->
+                <div class="success">
+                    <div class="success-inner">
+                        <div class="success-title">Поздравляем!</div>
+                        <div class="success-text">Ваша открытка отправлена!</div>
+                        <a href="#" class="success-link">создать еще одну</a>
+                    </div>
+                </div>
+                <!-- success END -->
+
+            </div>
+            <!-- wrapper inner END -->
+
+            <div class="hint">
+                <div class="hint-1">Выберите понравившийся<br />фон и перенесите его<br />на открытку</div>
+                <div class="hint-2">Выберите автомобиль<br />и перенесите его на открытку</div>
+                <div class="hint-3">Напишите поздравление<br />или выберите понравившееся</div>
+                <div class="hint-4">Ваша открытка готова!<br />Теперь вы можете ее отправить</div>
+                <div class="hint-5">Вы можете отменить последнее действие,<br />вернуть его или начать все заново.<br />А также уменьшить или увеличить картинку.</div>
+            </div>
+
+        </div>
+        <!-- wrapper END -->
+
+    </body>
+</html>
