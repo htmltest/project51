@@ -18,6 +18,7 @@ var curScale = 1.0;
             historyGift = [];
             historyStep = 0;
             $('.menu li:first').removeClass('disable');
+            $('.gift-form input').val('');
             e.preventDefault();
         });
 
@@ -29,11 +30,20 @@ var curScale = 1.0;
                 $('.container').html('<div class="content"></div>');
                 historyStep = 0;
             }
+            $('input[name="bgID"]').val($('.content').attr('bgID'));
+
+            $('input[name="autoID"]').val($('.content .auto').attr('autoID'));
+            $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+            $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+            $('input[name="autoWidth"]').val($('.content .auto img').width());
+            $('input[name="autoHeight"]').val($('.content .auto img').height());
             $('.content .auto').draggable({
                 containment:    'parent',
                 stop:           function(event, ui) {
                     historyGift.push($('.container').html());
                     historyStep = historyGift.length;
+                    $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                    $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
                 }
             });
             $('.content .auto img').resizable({
@@ -42,23 +52,45 @@ var curScale = 1.0;
                 stop:           function(event, ui) {
                     historyGift.push($('.container').html());
                     historyStep = historyGift.length;
+                    $('input[name="autoWidth"]').val($('.content .auto img').width());
+                    $('input[name="autoHeight"]').val($('.content .auto img').height());
                 }
             });
+
+            $('input[name="textID"]').val($('.content .text').attr('textID'));
+            $('input[name="textLeft"]').val($('.content .text').css('left').replace(/px/, ''));
+            $('input[name="textTop"]').val($('.content .text').css('top').replace(/px/, ''));
+            $('input[name="textWidth"]').val($('.content .text img').width());
+            $('input[name="textHeight"]').val($('.content .text img').height());
             $('.content .text').draggable({
                 containment:    'parent',
                 stop:           function(event, ui) {
                     historyGift.push($('.container').html());
                     historyStep = historyGift.length;
+                    $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                    $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                 }
             });
-            $('.content .text img').resizable({
-                containment:    '.content',
-                aspectRatio:    true,
-                stop:           function(event, ui) {
-                    historyGift.push($('.container').html());
-                    historyStep = historyGift.length;
-                }
-            });
+            if ($('input[name="textID"]').val() == '1') {
+                $('.text-message').change(function() {
+                    $('textarea[name="textValue"]').val($(this).val());
+                });
+            } else if ($('input[name="textID"]').val() != '2') {
+                $('.text-title').change(function() {
+                    $('textarea[name="textValue"]').val($(this).val());
+                });
+            } else {
+                $('.content .text img').resizable({
+                    containment:    '.content',
+                    aspectRatio:    true,
+                    stop:           function(event, ui) {
+                        historyGift.push($('.container').html());
+                        historyStep = historyGift.length;
+                        $('input[name="textWidth"]').val($('.content .text img').width());
+                        $('input[name="textHeight"]').val($('.content .text img').height());
+                    }
+                });
+            }
             e.preventDefault();
         });
 
@@ -99,11 +131,20 @@ var curScale = 1.0;
             historyStep++;
             if (historyStep <= historyGift.length) {
                 $('.container').html(historyGift[historyStep - 1]);
+                $('input[name="bgID"]').val($('.content').attr('bgID'));
+
+                $('input[name="autoID"]').val($('.content .auto').attr('autoID'));
+                $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+                $('input[name="autoWidth"]').val($('.content .auto img').width());
+                $('input[name="autoHeight"]').val($('.content .auto img').height());
                 $('.content .auto').draggable({
                     containment:    'parent',
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
+                        $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                        $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
                     }
                 });
                 $('.content .auto img').resizable({
@@ -112,23 +153,45 @@ var curScale = 1.0;
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
+                        $('input[name="autoWidth"]').val($('.content .auto img').width());
+                        $('input[name="autoHeight"]').val($('.content .auto img').height());
                     }
                 });
+
+                $('input[name="textID"]').val($('.content .text').attr('textID'));
+                $('input[name="textLeft"]').val($('.content .text').css('left').replace(/px/, ''));
+                $('input[name="textTop"]').val($('.content .text').css('top').replace(/px/, ''));
+                $('input[name="textWidth"]').val($('.content .text img').width());
+                $('input[name="textHeight"]').val($('.content .text img').height());
                 $('.content .text').draggable({
                     containment:    'parent',
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
+                        $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                        $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                     }
                 });
-                $('.content .text img').resizable({
-                    containment:    '.content',
-                    aspectRatio:    true,
-                    stop:           function(event, ui) {
-                        historyGift.push($('.container').html());
-                        historyStep = historyGift.length;
-                    }
-                });
+                if ($('input[name="textID"]').val() == '1') {
+                    $('.text-message').change(function() {
+                        $('textarea[name="textValue"]').val($(this).val());
+                    });
+                } else if ($('input[name="textID"]').val() != '2') {
+                    $('.text-title').change(function() {
+                        $('textarea[name="textValue"]').val($(this).val());
+                    });
+                } else {
+                    $('.content .text img').resizable({
+                        containment:    '.content',
+                        aspectRatio:    true,
+                        stop:           function(event, ui) {
+                            historyGift.push($('.container').html());
+                            historyStep = historyGift.length;
+                            $('input[name="textWidth"]').val($('.content .text img').width());
+                            $('input[name="textHeight"]').val($('.content .text img').height());
+                        }
+                    });
+                }
             } else {
                 historyStep = historyGift.length;
             }
@@ -169,6 +232,8 @@ var curScale = 1.0;
         $('.submenu-bg a').click(function(e) {
             $('.menu-auto').parent().removeClass('disable');
             $('.content').css({'background-image' : 'url(' + $(this).attr('href') + ')'});
+            $('.content').attr('bgID', $(this).data('id'));
+            $('input[name="bgID"]').val($(this).data('id'));
             historyGift.push($('.container').html());
             historyStep = historyGift.length;
             e.preventDefault();
@@ -177,13 +242,21 @@ var curScale = 1.0;
         $('.submenu-auto a').click(function(e) {
             $('.menu-text').parent().removeClass('disable');
             $('.content .auto').remove();
-            $('.content').append('<div class="auto"><img src="' + $(this).attr('href') + '" alt="" /></div>');
+            $('.content').append('<div class="auto" autoID="' + $(this).data('id') + '"><img src="' + $(this).attr('href') + '" alt="" /></div>');
+            $('input[name="autoID"]').val($(this).data('id'));
             $('.content .auto img').load(function() {
+                $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+                $('input[name="autoWidth"]').val($('.content .auto img').width());
+                $('input[name="autoHeight"]').val($('.content .auto img').height());
+
                 $('.content .auto').draggable({
                     containment:    'parent',
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
+                        $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                        $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
                     }
                 });
                 $('.content .auto img').resizable({
@@ -192,6 +265,8 @@ var curScale = 1.0;
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
+                        $('input[name="autoWidth"]').val($('.content .auto img').width());
+                        $('input[name="autoHeight"]').val($('.content .auto img').height());
                     }
                 });
             });
@@ -204,32 +279,53 @@ var curScale = 1.0;
             $('.menu-send').parent().removeClass('disable');
             var curIndex = $('.submenu-text li').index($(this).parent());
             $('.content .text').remove();
+            $('input[name="textID"]').val($(this).data('id'));
+            $('input[name="textLeft"]').val('26');
+            $('input[name="textTop"]').val('26');
             if (curIndex == 0) {
-                $('.content').append('<div class="text text-message-wrap"><textarea name="textmessage" class="text-message" cols="5" rows="10" placeholder="Введите текст поздравления"></textarea></div>');
+                $('.content').append('<div class="text text-message-wrap" textID="' + $(this).data('id') + '"><textarea name="textmessage" class="text-message" cols="5" rows="10" placeholder="Введите текст поздравления"></textarea></div>');
+                $('input[name="textWidth"]').val($('.content .text').width());
+                $('input[name="textHeight"]').val($('.content .text').height());
                 $('.content .text').draggable({
                     containment:    'parent',
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
+                        $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                        $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                     }
                 });
+                $('.text-message').change(function() {
+                    $('textarea[name="textValue"]').val($(this).val());
+                });
             } else if (curIndex == 1) {
-                $('.content').append('<div class="text"><img src="' + $(this).attr('href') + '" alt="" /><input type="text" name="texttitle" class="text-title" value="" /></div>');
+                $('.content').append('<div class="text" textID="' + $(this).data('id') + '"><img src="' + $(this).attr('href') + '" alt="" /><input type="text" name="texttitle" class="text-title" value="" /></div>');
                 $('.content .text img').load(function() {
+                    $('input[name="textWidth"]').val($('.content .text img').width());
+                    $('input[name="textHeight"]').val($('.content .text img').height());
                     $('.content .text').draggable({
                         containment:    'parent',
                         stop:           function(event, ui) {
                             historyGift.push($('.container').html());
                             historyStep = historyGift.length;
+                            $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                            $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                         }
                     });
                 });
+                $('.text-title').change(function() {
+                    $('textarea[name="textValue"]').val($(this).val());
+                });
             } else {
-                $('.content').append('<div class="text"><img src="' + $(this).attr('href') + '" alt="" /></div>');
+                $('.content').append('<div class="text" textID="' + $(this).data('id') + '"><img src="' + $(this).attr('href') + '" alt="" /></div>');
                 $('.content .text img').load(function() {
+                    $('input[name="textWidth"]').val($('.content .text img').width());
+                    $('input[name="textHeight"]').val($('.content .text img').height());
                     $('.content .text').draggable({
                         containment:    'parent',
                         stop:           function(event, ui) {
+                            $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                            $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                             historyGift.push($('.container').html());
                             historyStep = historyGift.length;
                         }
@@ -240,6 +336,8 @@ var curScale = 1.0;
                         stop:           function(event, ui) {
                             historyGift.push($('.container').html());
                             historyStep = historyGift.length;
+                            $('input[name="textWidth"]').val($('.content .text img').width());
+                            $('input[name="textHeight"]').val($('.content .text img').height());
                         }
                     });
                 });
@@ -293,6 +391,7 @@ var curScale = 1.0;
             historyGift = [];
             historyStep = 0;
             $('.menu li:first').removeClass('disable');
+            $('.gift-form input').val('');
             e.preventDefault();
         });
 

@@ -174,3 +174,5 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .hint-3 {position:absolute; left:400px; top:328px}
 .hint-4 {position:absolute; left:400px; top:423px}
 .hint-5 {position:absolute; left:790px; top:146px}
+
+.gift-form {display:none}
