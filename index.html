@@ -11,12 +11,15 @@
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
         <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css" />
+        <link rel="stylesheet" href="js/fancybox-2.1.5/jquery.fancybox.css">
 
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/jscrollpane/jquery.mousewheel.js"></script>
         <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/jquery.validate.min.js"></script>
         <script src="js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="js/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
+        <script src="js/modernizr-custom.min.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -40,6 +43,8 @@
                 <div class="logo"><img src="images/logo.png" alt="" width="58" height="48" /></div>
             </header>
 
+            <a href="#" class="menu-mobile"></a>
+
             <!-- wrapper inner -->
             <div class="wrapper-inner">
                 <div class="menu">
@@ -57,11 +62,11 @@
                         <div class="submenu-list">
                             <div class="submenu-list-content">
                                 <ul class="submenu-bg">
-                                    <li><a href="files/bg/01.jpg" data-id="1"><img src="files/bg/01-preview.jpg" alt="" /></a></li>
-                                    <li><a href="files/bg/02.jpg" data-id="2"><img src="files/bg/02-preview.jpg" alt="" /></a></li>
-                                    <li><a href="files/bg/03.jpg" data-id="3"><img src="files/bg/03-preview.jpg" alt="" /></a></li>
-                                    <li><a href="files/bg/04.jpg" data-id="4"><img src="files/bg/04-preview.jpg" alt="" /></a></li>
-                                    <li><a href="files/bg/05.jpg" data-id="5"><img src="files/bg/05-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/01.jpg" data-id="1" data-mobile="files/bg/01-mobile.jpg"><img src="files/bg/01-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/02.jpg" data-id="2" data-mobile="files/bg/02-mobile.jpg"><img src="files/bg/02-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/03.jpg" data-id="3" data-mobile="files/bg/03-mobile.jpg"><img src="files/bg/03-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/04.jpg" data-id="4" data-mobile="files/bg/04-mobile.jpg"><img src="files/bg/04-preview.jpg" alt="" /></a></li>
+                                    <li><a href="files/bg/05.jpg" data-id="5" data-mobile="files/bg/05-mobile.jpg"><img src="files/bg/05-preview.jpg" alt="" /></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -157,8 +162,8 @@
                             <div class="send-col">&nbsp;</div>
                             <div class="send-col">
                                 <div class="send-submit">
+                                    <a href="#" class="send-address-add"><span>Добавить получателя</span></a>
                                     <input type="submit" value="отправить открытку" />
-                                    <a href="#" class="send-address-add"></a>
                                 </div>
                             </div>
                         </div>
@@ -206,6 +211,8 @@
                 <div class="hint-3">Напишите поздравление<br />или выберите понравившееся</div>
                 <div class="hint-4">Ваша открытка готова!<br />Теперь вы можете ее отправить</div>
                 <div class="hint-5">Вы можете отменить последнее действие,<br />вернуть его или начать все заново.<br />А также уменьшить или увеличить картинку.</div>
+                <div class="hint-6">Выберите<br />понравившийся фон<br />и автомобиль, напишите<br />свое поздравление<br />или воспользуйтесь<br />предложенными<br />и отправьте свою<br />открытку!</div>
+                <div class="hint-7">Также вы можете<br />отменить последнее<br />действие, вернуть его<br />или начать все заново.</div>
             </div>
 
         </div>

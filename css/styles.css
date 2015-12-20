@@ -12,8 +12,21 @@ img {border:none}
 
 .wrapper {min-width:640px; width:100%; min-height:100%; position:relative; overflow:hidden; background:url(../images/bg.png)}
 
+.menu-mobile {display:none; width:55px; height:34px; background:url(../images/menu-mobile.png); position:fixed; left:140px; top:34px; z-index:20}
+@media (max-width:1000px) {
+    .menu-mobile.active {display:block}
+    .menu-mobile.with-submenu {left:385px}
+    .menu-mobile-hidden .menu-mobile {left:30px}
+}
+
 header {height:79px; background:#f1f1f1; border-bottom:1px solid #d6d6d6; position:relative; z-index:2}
 header:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+
+@media (max-width:1000px) {
+    header {display:none; height:100%; border-bottom:none; position:fixed; left:0; top:405px; z-index:20}
+    header.active {display:block}
+    .menu-mobile-hidden header {display:none}
+}
 
 .header-menu {float:left; margin:0; padding:0; list-style:none}
 .header-menu li {float:left; margin:0; padding:0}
@@ -33,9 +46,25 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .header-menu a.header-menu-help:hover:before {background-position:-175px -35px}
 .header-menu a:active {background:#ebebeb}
 
+@media (max-width:1000px) {
+    .header-menu {float:none}
+    .header-menu li {float:none}
+    .header-menu a {width:110px}
+    .header-menu a.header-menu-inc {display:none}
+    .header-menu a.header-menu-dec {display:none}
+}
+
 .logo {float:right; line-height:0; padding:12px 0 0 22px; height:67px; border-left:1px solid #d6d6d6; width:200px}
 
+@media (max-width:1000px) {
+    .logo {display:none}
+}
+
 .wrapper-inner {display:table; width:100%; background:url(../images/bg-top.png) repeat-x center top}
+
+@media (max-width:1000px) {
+    .wrapper-inner {display:block}
+}
 
 .menu {display:table-cell; vertical-align:top; background:#626468; position:relative; width:110px}
 .menu ul {margin:0; padding:0; list-style:none; width:110px}
@@ -74,8 +103,19 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .menu li.active a.menu-send:after {display:none}
 .menu li.disable a {opacity:.2; cursor:default; color:#f4f5f6}
 
+@media (max-width:1000px) {
+    .menu {display:none; position:fixed; left:0; top:0; z-index:19; height:100%; padding-bottom:80px}
+    .menu.active {display:block}
+    .menu-mobile-hidden .menu.active {display:none}
+}
+
 .submenu {display:block; position:absolute; left:-9999px; top:-9999px; vertical-align:top; width:245px; background:#4d4f53 url(../images/submenu.png)}
 .submenu.active {display:table-cell; position:relative; left:auto; top:auto}
+
+@media (max-width:1000px) {
+    .submenu.active {display:block; left:110px; top:0; position:fixed; z-index:1; padding-bottom:80px}
+    .menu-mobile-hidden .submenu {left:-9999px}
+}
 
 .submenu-content {position:absolute; left:-9999px; top:-9999px; width:245px}
 .submenu-content.active {position:relative; left:auto; top:auto}
@@ -114,6 +154,12 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .content .text-title {position:absolute; left:25px; top:40px; width:176px; height:20px; color:#4d4f53; font:bold 15px/20px ToyotaDisplay, helvetica, sans-serif; border:none; text-align:center; background:none; margin:0; padding:0; outline:none; -webkit-appearance:none}
 .content .text-message {width:240px; height:100px; color:#4d4f53; font:15px/20px ToyotaDisplay, helvetica, sans-serif; border:none; text-align:center; background:none; margin:0; padding:0; outline:none; -webkit-appearance:none; resize:none; overflow:auto}
 
+@media (max-width:1000px) {
+    .container {padding:80px 0; position:relative}
+    .container.active {display:block}
+    .content {width:100%; height:100%; background-color:transparent; box-shadow:none; position:absolute; left:0; top:0}
+}
+
 .welcome {display:none; vertical-align:middle; padding:80px}
 .welcome.active {display:table-cell}
 .welcome-inner {width:650px; margin:0 auto; text-align:center}
@@ -127,6 +173,10 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .send.active {display:table-cell; vertical-align:top; padding:40px 80px 40px 50px}
 .send form {margin:0; padding:0}
 
+@media (max-width:1000px) {
+    .send.active {display:block; padding:20px}
+}
+
 .send-top:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 
 .send-preview {float:left; width:251px}
@@ -134,11 +184,19 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .send-preview img {width:100%}
 .send-preview a:after {content:""; display:block; width:29px; height:29px; background:url(../images/send-preview.png); position:absolute; right:0; bottom:0}
 
+@media (max-width:1000px) {
+    .send-preview {float:none; width:auto}
+}
+
 .send-share {float:left; width:330px; padding:0 0 0 30px}
 .send-share-title {font-size:22px; line-height:22px; color:#323232; padding:11px 0 17px 0}
 .send-share-link {border:1px solid #d8d8d8; width:100%; box-sizing:border-box; font-size:14px; line-height:48px; height:50px; background:#fff; border-radius:2px; color:#999; padding:0 10px; position:relative; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .send-share-social {font-size:0; line-height:0; letter-spacing:-1px; padding:20px 0 0 0}
 .send-share-social img {vertical-align:top; margin:0 10px 0 0}
+
+@media (max-width:1000px) {
+    .send-share {float:none; width:auto; padding:0}
+}
 
 .send-title {font-size:22px; line-height:22px; color:#323232; padding:35px 0 0 0}
 
@@ -158,6 +216,15 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .send-submit input:hover {background-position:left -50px}
 .send-address-add {display:block; width:26px; height:26px; position:absolute; right:-36px; top:-45px; background:url(../images/address-add.png)}
 .send-address-add:hover {background-position:left -26px}
+.send-address-add span {display:none}
+
+@media (max-width:1000px) {
+    .send-row {padding-bottom:0}
+    .send-col {float:none; width:auto; padding-bottom:7px}
+    .send-address-add {position:relative; right:auto; top:auto; margin:-40px auto 30px auto; width:400px; height:56px; text-align:center; background:url(../images/address-add-mobile.png) no-repeat right center}
+    .send-address-add:hover {background-position:right center}
+    .send-address-add span {display:block; font-size:24px; line-height:56px; color:#4d4f53}
+}
 
 .success {display:none; vertical-align:middle; padding:80px}
 .success.active {display:table-cell}
@@ -174,5 +241,13 @@ header:after {content:"."; display:block; clear:both; visibility:hidden; height:
 .hint-3 {position:absolute; left:400px; top:328px}
 .hint-4 {position:absolute; left:400px; top:423px}
 .hint-5 {position:absolute; left:790px; top:146px}
+.hint-6 {display:none; position:absolute; left:150px; top:70px}
+.hint-7 {display:none; position:absolute; left:150px; top:480px}
+
+@media (max-width:1000px) {
+    .hint {background-image:url(../images/hint-mobile.png); z-index:21}
+    .hint-1, .hint-2, .hint-3, .hint-4, .hint-5 {display:none}
+    .hint-6, .hint-7 {display:block}
+}
 
 .gift-form {display:none}
