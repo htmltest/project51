@@ -32,30 +32,32 @@ var curScale = 1.0;
             }
             $('input[name="bgID"]').val($('.content').attr('bgID'));
 
-            $('input[name="autoID"]').val($('.content .auto').attr('autoID'));
-            $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
-            $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
-            $('input[name="autoWidth"]').val($('.content .auto img').width());
-            $('input[name="autoHeight"]').val($('.content .auto img').height());
-            $('.content .auto').draggable({
-                containment:    'parent',
-                stop:           function(event, ui) {
-                    historyGift.push($('.container').html());
-                    historyStep = historyGift.length;
-                    $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
-                    $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
-                }
-            });
-            $('.content .auto img').resizable({
-                containment:    '.content',
-                aspectRatio:    true,
-                stop:           function(event, ui) {
-                    historyGift.push($('.container').html());
-                    historyStep = historyGift.length;
-                    $('input[name="autoWidth"]').val($('.content .auto img').width());
-                    $('input[name="autoHeight"]').val($('.content .auto img').height());
-                }
-            });
+            if ($('.content .auto').length == 1) {
+                $('input[name="autoID"]').val($('.content .auto').attr('autoID'));
+                $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+                $('input[name="autoWidth"]').val($('.content .auto img').width());
+                $('input[name="autoHeight"]').val($('.content .auto img').height());
+                $('.content .auto').draggable({
+                    containment:    'parent',
+                    stop:           function(event, ui) {
+                        historyGift.push($('.container').html());
+                        historyStep = historyGift.length;
+                        $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                        $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+                    }
+                });
+                $('.content .auto img').resizable({
+                    containment:    '.content',
+                    aspectRatio:    true,
+                    stop:           function(event, ui) {
+                        historyGift.push($('.container').html());
+                        historyStep = historyGift.length;
+                        $('input[name="autoWidth"]').val($('.content .auto img').width());
+                        $('input[name="autoHeight"]').val($('.content .auto img').height());
+                    }
+                });
+            }
 
             if (Modernizr.touchevents) {
                 var touchStartAutoX = 0;
@@ -86,39 +88,41 @@ var curScale = 1.0;
                 });
             }
 
-            $('input[name="textID"]').val($('.content .text').attr('textID'));
-            $('input[name="textLeft"]').val($('.content .text').css('left').replace(/px/, ''));
-            $('input[name="textTop"]').val($('.content .text').css('top').replace(/px/, ''));
-            $('input[name="textWidth"]').val($('.content .text img').width());
-            $('input[name="textHeight"]').val($('.content .text img').height());
-            $('.content .text').draggable({
-                containment:    'parent',
-                stop:           function(event, ui) {
-                    historyGift.push($('.container').html());
-                    historyStep = historyGift.length;
-                    $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
-                    $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
-                }
-            });
-            if ($('input[name="textID"]').val() == '1') {
-                $('.text-message').change(function() {
-                    $('textarea[name="textValue"]').val($(this).val());
-                });
-            } else if ($('input[name="textID"]').val() != '2') {
-                $('.text-title').change(function() {
-                    $('textarea[name="textValue"]').val($(this).val());
-                });
-            } else {
-                $('.content .text img').resizable({
-                    containment:    '.content',
-                    aspectRatio:    true,
+            if ($('.content .text').length == 1) {
+                $('input[name="textID"]').val($('.content .text').attr('textID'));
+                $('input[name="textLeft"]').val($('.content .text').css('left').replace(/px/, ''));
+                $('input[name="textTop"]').val($('.content .text').css('top').replace(/px/, ''));
+                $('input[name="textWidth"]').val($('.content .text img').width());
+                $('input[name="textHeight"]').val($('.content .text img').height());
+                $('.content .text').draggable({
+                    containment:    'parent',
                     stop:           function(event, ui) {
                         historyGift.push($('.container').html());
                         historyStep = historyGift.length;
-                        $('input[name="textWidth"]').val($('.content .text img').width());
-                        $('input[name="textHeight"]').val($('.content .text img').height());
+                        $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                        $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                     }
                 });
+                if ($('input[name="textID"]').val() == '1') {
+                    $('.text-message').change(function() {
+                        $('textarea[name="textValue"]').val($(this).val());
+                    });
+                } else if ($('input[name="textID"]').val() != '2') {
+                    $('.text-title').change(function() {
+                        $('textarea[name="textValue"]').val($(this).val());
+                    });
+                } else {
+                    $('.content .text img').resizable({
+                        containment:    '.content',
+                        aspectRatio:    true,
+                        stop:           function(event, ui) {
+                            historyGift.push($('.container').html());
+                            historyStep = historyGift.length;
+                            $('input[name="textWidth"]').val($('.content .text img').width());
+                            $('input[name="textHeight"]').val($('.content .text img').height());
+                        }
+                    });
+                }
             }
 
             if (Modernizr.touchevents) {
@@ -192,30 +196,32 @@ var curScale = 1.0;
                 $('.container').html(historyGift[historyStep - 1]);
                 $('input[name="bgID"]').val($('.content').attr('bgID'));
 
-                $('input[name="autoID"]').val($('.content .auto').attr('autoID'));
-                $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
-                $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
-                $('input[name="autoWidth"]').val($('.content .auto img').width());
-                $('input[name="autoHeight"]').val($('.content .auto img').height());
-                $('.content .auto').draggable({
-                    containment:    'parent',
-                    stop:           function(event, ui) {
-                        historyGift.push($('.container').html());
-                        historyStep = historyGift.length;
-                        $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
-                        $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
-                    }
-                });
-                $('.content .auto img').resizable({
-                    containment:    '.content',
-                    aspectRatio:    true,
-                    stop:           function(event, ui) {
-                        historyGift.push($('.container').html());
-                        historyStep = historyGift.length;
-                        $('input[name="autoWidth"]').val($('.content .auto img').width());
-                        $('input[name="autoHeight"]').val($('.content .auto img').height());
-                    }
-                });
+                if ($('.content .auto').length == 1) {
+                    $('input[name="autoID"]').val($('.content .auto').attr('autoID'));
+                    $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                    $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+                    $('input[name="autoWidth"]').val($('.content .auto img').width());
+                    $('input[name="autoHeight"]').val($('.content .auto img').height());
+                    $('.content .auto').draggable({
+                        containment:    'parent',
+                        stop:           function(event, ui) {
+                            historyGift.push($('.container').html());
+                            historyStep = historyGift.length;
+                            $('input[name="autoLeft"]').val($('.content .auto').css('left').replace(/px/, ''));
+                            $('input[name="autoTop"]').val($('.content .auto').css('top').replace(/px/, ''));
+                        }
+                    });
+                    $('.content .auto img').resizable({
+                        containment:    '.content',
+                        aspectRatio:    true,
+                        stop:           function(event, ui) {
+                            historyGift.push($('.container').html());
+                            historyStep = historyGift.length;
+                            $('input[name="autoWidth"]').val($('.content .auto img').width());
+                            $('input[name="autoHeight"]').val($('.content .auto img').height());
+                        }
+                    });
+                }
 
                 if (Modernizr.touchevents) {
                     var touchStartAutoX = 0;
@@ -246,39 +252,41 @@ var curScale = 1.0;
                     });
                 }
 
-                $('input[name="textID"]').val($('.content .text').attr('textID'));
-                $('input[name="textLeft"]').val($('.content .text').css('left').replace(/px/, ''));
-                $('input[name="textTop"]').val($('.content .text').css('top').replace(/px/, ''));
-                $('input[name="textWidth"]').val($('.content .text img').width());
-                $('input[name="textHeight"]').val($('.content .text img').height());
-                $('.content .text').draggable({
-                    containment:    'parent',
-                    stop:           function(event, ui) {
-                        historyGift.push($('.container').html());
-                        historyStep = historyGift.length;
-                        $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
-                        $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
-                    }
-                });
-                if ($('input[name="textID"]').val() == '1') {
-                    $('.text-message').change(function() {
-                        $('textarea[name="textValue"]').val($(this).val());
-                    });
-                } else if ($('input[name="textID"]').val() != '2') {
-                    $('.text-title').change(function() {
-                        $('textarea[name="textValue"]').val($(this).val());
-                    });
-                } else {
-                    $('.content .text img').resizable({
-                        containment:    '.content',
-                        aspectRatio:    true,
+                if ($('.content .text').length == 1) {
+                    $('input[name="textID"]').val($('.content .text').attr('textID'));
+                    $('input[name="textLeft"]').val($('.content .text').css('left').replace(/px/, ''));
+                    $('input[name="textTop"]').val($('.content .text').css('top').replace(/px/, ''));
+                    $('input[name="textWidth"]').val($('.content .text img').width());
+                    $('input[name="textHeight"]').val($('.content .text img').height());
+                    $('.content .text').draggable({
+                        containment:    'parent',
                         stop:           function(event, ui) {
                             historyGift.push($('.container').html());
                             historyStep = historyGift.length;
-                            $('input[name="textWidth"]').val($('.content .text img').width());
-                            $('input[name="textHeight"]').val($('.content .text img').height());
+                            $('input[name="textLeft"]').val(Number($('.content .text').css('left').replace(/px/, '')) + 26);
+                            $('input[name="textTop"]').val(Number($('.content .text').css('top').replace(/px/, '')) + 26);
                         }
                     });
+                    if ($('input[name="textID"]').val() == '1') {
+                        $('.text-message').change(function() {
+                            $('textarea[name="textValue"]').val($(this).val());
+                        });
+                    } else if ($('input[name="textID"]').val() != '2') {
+                        $('.text-title').change(function() {
+                            $('textarea[name="textValue"]').val($(this).val());
+                        });
+                    } else {
+                        $('.content .text img').resizable({
+                            containment:    '.content',
+                            aspectRatio:    true,
+                            stop:           function(event, ui) {
+                                historyGift.push($('.container').html());
+                                historyStep = historyGift.length;
+                                $('input[name="textWidth"]').val($('.content .text img').width());
+                                $('input[name="textHeight"]').val($('.content .text img').height());
+                            }
+                        });
+                    }
                 }
 
                 if (Modernizr.touchevents) {
@@ -595,9 +603,9 @@ var curScale = 1.0;
     });
 
     $(window).bind('load resize', function() {
-        var curHeight = $('.wrapper').height() - 80;
+        var curHeight = $(window).height() - 80;
         $('.menu, .submenu-list').height(curHeight);
-        $('.container').height(curHeight);
+        $('.container').height(curHeight - 160);
     });
 
 })(jQuery);
